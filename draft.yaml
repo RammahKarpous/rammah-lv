@@ -1,0 +1,26 @@
+models:
+  Article:
+    slug: string
+    title: string
+    description: string
+    keywords: string
+    excerpt: string
+    body: string
+    featured: boolean
+    category_id: unsignedInteger
+    relationships:
+      hasOne: Category
+  
+  Category:
+    category: string
+    relationships:
+      belongsTo: Article
+
+  Subscriber:
+    email: string
+
+  Page:
+    title: string
+    slug: string
+    description: string
+    keywords: string

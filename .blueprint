@@ -1,0 +1,19 @@
+created:
+    - database/factories/ArticleFactory.php
+    - database/factories/CategoryFactory.php
+    - database/factories/SubscriberFactory.php
+    - database/factories/PageFactory.php
+    - database/migrations/2024_02_13_162859_create_articles_table.php
+    - database/migrations/2024_02_13_162900_create_categories_table.php
+    - database/migrations/2024_02_13_162901_create_subscribers_table.php
+    - database/migrations/2024_02_13_162902_create_pages_table.php
+    - app/Models/Article.php
+    - app/Models/Category.php
+    - app/Models/Subscriber.php
+    - app/Models/Page.php
+models:
+    User: {  }
+    Article: { slug: string, title: string, description: string, keywords: string, excerpt: string, body: string, featured: boolean, category_id: unsignedInteger, relationships: { hasOne: Category } }
+    Category: { category: string, relationships: { belongsTo: Article } }
+    Subscriber: { email: string }
+    Page: { title: string, slug: string, description: string, keywords: string }

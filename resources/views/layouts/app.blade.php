@@ -14,14 +14,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100 dark:bg-black">
-            <livewire:shared.navigation />
+    <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white">
+        <div class="container flex flex-col justify-between min-h-screen mx-auto">
 
             <!-- Page Content -->
             <main>
+                <livewire:shared.navigation />
                 {{ $slot }}
             </main>
+
+            <livewire:shared.footer />
         </div>
     </body>
 </html>

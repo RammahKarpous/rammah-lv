@@ -21,12 +21,11 @@ class ArticleFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->sentence(4),
+            'title' => $this->faker->sentence(5),
             'slug' => $this->faker->slug(),
             'description' => $this->faker->text(),
-            'body' => $this->faker->word(),
+            'body' => $this->faker->text(255),
             'keywords' => $this->faker->word(),
-            'category_id' => $this->faker->randomNumber(),
         ];
     }
 }

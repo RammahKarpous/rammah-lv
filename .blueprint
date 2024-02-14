@@ -2,18 +2,15 @@ created:
     - database/factories/ArticleFactory.php
     - database/factories/CategoryFactory.php
     - database/factories/SubscriberFactory.php
-    - database/factories/PageFactory.php
-    - database/migrations/2024_02_13_162859_create_articles_table.php
-    - database/migrations/2024_02_13_162900_create_categories_table.php
-    - database/migrations/2024_02_13_162901_create_subscribers_table.php
-    - database/migrations/2024_02_13_162902_create_pages_table.php
+    - database/migrations/2024_02_14_112024_create_articles_table.php
+    - database/migrations/2024_02_14_112025_create_categories_table.php
+    - database/migrations/2024_02_14_112026_create_subscribers_table.php
     - app/Models/Article.php
     - app/Models/Category.php
     - app/Models/Subscriber.php
-    - app/Models/Page.php
 models:
-    User: {  }
-    Article: { slug: string, title: string, description: string, keywords: string, excerpt: string, body: string, featured: boolean, category_id: unsignedInteger, relationships: { hasOne: Category } }
+    Article: { title: string, slug: string, description: string, body: string, keywords: string, category_id: unsignedInteger, relationships: { hasOne: Category } }
     Category: { category: string, relationships: { belongsTo: Article } }
+    Page: {  }
     Subscriber: { email: string }
-    Page: { title: string, slug: string, description: string, keywords: string }
+    User: { name: string, email: string, email_verified_at: 'datetime nullable', password: string, remember_token: 'string:100 nullable' }

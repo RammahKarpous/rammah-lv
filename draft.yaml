@@ -1,12 +1,10 @@
 models:
   Article:
-    slug: string
     title: string
+    slug: string
     description: string
-    keywords: string
-    excerpt: string
     body: string
-    featured: boolean
+    keywords: string
     category_id: unsignedInteger
     relationships:
       hasOne: Category
@@ -18,9 +16,3 @@ models:
 
   Subscriber:
     email: string
-
-  Page:
-    title: string
-    slug: string
-    description: string
-    keywords: string

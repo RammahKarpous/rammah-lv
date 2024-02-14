@@ -12,7 +12,6 @@ class Article extends Model
 
     protected $casts = [
         'id' => 'integer',
-        'featured' => 'boolean',
         'category_id' => 'integer',
     ];
 

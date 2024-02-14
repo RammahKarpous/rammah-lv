@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
         Article::factory(10)->create();
         Category::factory(10)->create();
         Subscriber::factory(10)->create();
-        Page::factory(10)->create();
         
         User::factory()->create([
             'name' => 'Rammah',

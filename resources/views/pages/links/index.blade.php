@@ -1,3 +1,5 @@
+@section('view', 'links')
+
 <?php
 use function Livewire\Volt\{state, mount};
 

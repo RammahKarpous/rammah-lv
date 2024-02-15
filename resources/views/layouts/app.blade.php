@@ -17,13 +17,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white">
+    <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white" >
         <div class="container flex flex-col justify-between min-h-screen mx-auto">
 
             <!-- Page Content -->
-            <main>
-                <livewire:shared.navigation />
-                {{ $slot }}
+            <main data-router-wrapper>
+                <article data-router-view="@yield('view')">
+                    <livewire:shared.navigation />
+                    {{ $slot }}
+                </article>
             </main>
 
             <livewire:shared.footer />

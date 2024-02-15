@@ -28,6 +28,8 @@ export default {
 
     plugins: [
         forms,
-        require('@tailwindcss/typography')
+        require('@tailwindcss/typography', {
+            className: 'md',
+        })
     ],
 };

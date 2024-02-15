@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
@@ -68,15 +69,18 @@ class Article extends Model
                         ->columnSpanFull()
                         ->required()
                         ->maxLength(255),
+
+                    TextInput::make('keywords')
+                        ->required()
+                        ->maxLength(255),
+                    Select::make('category_id')
+                        ->options(Category::all()->pluck('category', 'id'))
                 ]),
-            Section::make([
-                RichEditor::make('body')
+            Section::make('Blog content')
+                ->schema([
+                MarkdownEditor::make('body')
+                    ->label('')
                     ->required(),
-                TextInput::make('keywords')
-                    ->required()
-                    ->maxLength(255),
-                Select::make('category_id')
-                    ->options(Category::all()->pluck('category', 'id'))
             ])
         ];
     }

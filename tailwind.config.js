@@ -13,6 +13,8 @@ export default {
         extend: {
             colors: {
                 body: '#131212',
+                "body-alt": "#181818",
+                border: '#1E1D1D',
                 white: '#F8F4F4',
                 black: '#202426',
                 primary: '#2765DC',
@@ -24,5 +26,8 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        forms,
+        require('@tailwindcss/typography')
+    ],
 };

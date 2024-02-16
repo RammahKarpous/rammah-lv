@@ -20,14 +20,18 @@
     <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white" >
         <div class="container flex flex-col justify-between min-h-screen mx-auto">
 
-            <!-- Page Content -->
             <main data-router-wrapper>
                 <article data-router-view="@yield('view')">
+
+                    <!-- Navigation -->
                     <livewire:shared.navigation />
+
+                    <!-- Page Content -->
                     {{ $slot }}
                 </article>
             </main>
 
+            <!-- Footer -->
             <livewire:shared.footer />
         </div>
     </body>

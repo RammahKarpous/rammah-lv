@@ -9,10 +9,12 @@ use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 use  Illuminate\Support\Str;
@@ -34,11 +36,12 @@ class Article extends Model
     protected $casts = [
         'id' => 'integer',
         'category_id' => 'integer',
+        'featured' => 'boolean',
     ];
 
-    public function category(): HasOne
+    public function category(): BelongsTo
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public static function getForm()
@@ -76,7 +79,9 @@ class Article extends Model
                         ->required()
                         ->maxLength(255),
 
-                    TextInput::make('keywords')
+                    Textarea::make('keywords')
+                        ->cols(3)
+                        ->rows(3)
                         ->required()
                         ->maxLength(255),
                     Select::make('category_id')

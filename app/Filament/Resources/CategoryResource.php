@@ -34,9 +34,6 @@ class CategoryResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('category')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('article.title')
-                    ->numeric()
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()

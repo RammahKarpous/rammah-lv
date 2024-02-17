@@ -6,7 +6,7 @@ class Fade extends Highway.Transition {
 		const tl = gsap.timeline()
 
 		tl.fromTo(from, { opacity: 1 }, {
-			opacity: 0, duration: .5, onComplete: function () {
+			opacity: 0, duration: .2, onComplete: function () {
 				done()
 			}
 		})
@@ -19,7 +19,7 @@ class Fade extends Highway.Transition {
 		const tl = gsap.timeline()
 		
 		tl.fromTo(to, { opacity: 0 }, {
-			opacity: 1, duration: .5, onComplete: function () {
+			opacity: 1, duration: .2, onComplete: function () {
 				done()
 			}
 		})

@@ -9,8 +9,8 @@ class Fade extends Highway.Transition {
         const articles = document.querySelectorAll('.article');
 
         tl
-            .to(title, { opacity: 0, duration: .5 })
-            .to(articles, { opacity: 0, duration: .5, stagger: 0.1, onComplete: function () { done() } }, "-=.4")
+            .to(title, { opacity: 0, duration: .3 })
+            .to(articles, { opacity: 0, duration: .3, stagger: 0.1, onComplete: function () { done() } }, "-=.4")
 	}
 
 	in({ from, done }) {
@@ -25,8 +25,8 @@ class Fade extends Highway.Transition {
 
         tl
             .from(headerImage, { opacity: 0, duration: .5 })
-            .from(title, { opacity: 0, y: 20, duration: .7, ease: 'power2.inOut' }, "-=.3")
-            .from(article, { opacity: 0, y: 20, duration: .7, ease: 'power2.inOut', onComplete: function () { done() } }, "-=.65")
+            .from(title, { opacity: 0, y: 20, duration: .5, ease: 'power2.inOut' }, "-=.3")
+            .from(article, { opacity: 0, y: 20, duration: .5, ease: 'power2.inOut', onComplete: function () { done() } }, "-=.45")
 	}
 }
 

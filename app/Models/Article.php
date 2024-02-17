@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\MarkdownEditor;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -24,6 +25,7 @@ class Article extends Model
         'title',
         'slug',
         'description',
+        'header_image',
         'body',
         'keywords',
         'category_id',
@@ -42,6 +44,10 @@ class Article extends Model
     public static function getForm()
     {
         return [
+            FileUpload::make('header_image')
+                ->imageEditor()
+                ->imagePreviewHeight(250)
+                ->required(),
             Section::make('Meta')
                 ->collapsible()
                 ->columns(2)
@@ -74,6 +80,7 @@ class Article extends Model
                         ->required()
                         ->maxLength(255),
                     Select::make('category_id')
+                        ->required()
                         ->options(Category::all()->pluck('category', 'id'))
                 ]),
             Section::make('Blog content')

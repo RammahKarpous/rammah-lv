@@ -87,6 +87,7 @@ class AboutResource extends Resource
                             ->required()
                             ->maxLength(255),
                         FileUpload::make('images')
+                            ->imageEditor()
                             ->required()
                             ->image()
                             ->multiple(),

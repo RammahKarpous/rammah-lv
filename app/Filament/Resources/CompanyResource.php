@@ -2,19 +2,25 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\LinkResource\Pages;
-use App\Models\Link;
+use App\Filament\Resources\CompanyResource\Pages;
+use App\Filament\Resources\CompanyResource\RelationManagers;
+use App\Models\Company;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class LinkResource extends Resource
+class CompanyResource extends Resource
 {
-    protected static ?string $model = Link::class;
+    protected static ?string $model = Company::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-building-office-2';
 
     protected static ?string $navigationGroup = 'Collections';
 
@@ -22,12 +28,26 @@ class LinkResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
+                TextInput::make('name')
+                    ->label('Company Name')
+                    ->columnSpanFull()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('url')
+                FileUpload::make('logo')
+                    ->required(),
+                TextInput::make('url')
+                    ->url()
+                    ->prefix('https://')
+                    ->suffix('.com')
                     ->required()
                     ->maxLength(255),
+                Textarea::make('description')
+                    ->columnSpanFull()
+                    ->rows(3)
+                    ->cols(4)
+                    ->required()
+                    ->maxLength(255),
+
             ]);
     }
 
@@ -36,6 +56,10 @@ class LinkResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('logo')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('description')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('url')
                     ->searchable(),
@@ -71,9 +95,9 @@ class LinkResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListLinks::route('/'),
-            'create' => Pages\CreateLink::route('/create'),
-            'edit' => Pages\EditLink::route('/{record}/edit'),
+            'index' => Pages\ListCompanies::route('/'),
+            'create' => Pages\CreateCompany::route('/create'),
+            'edit' => Pages\EditCompany::route('/{record}/edit'),
         ];
     }
 }

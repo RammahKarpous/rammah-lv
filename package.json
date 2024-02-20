@@ -18,6 +18,8 @@
     "dependencies": {
         "@dogstudio/highway": "^2.2.1",
         "gsap": "^3.12.5",
-        "highlight.js": "^11.9.0"
+        "highlight.js": "^11.9.0",
+        "photoswipe": "^5.4.3",
+        "swiper": "^11.0.6"
     }
 }

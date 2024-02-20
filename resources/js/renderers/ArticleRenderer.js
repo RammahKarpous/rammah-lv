@@ -1,6 +1,6 @@
 import Highway from '@dogstudio/highway';
-import highlight from '../actions/highlight';
-// import activeLinkIndicator from '../actions/activeLinkIndicator';
+import highlight from '../vendor/highlight';
+// import activeLinkIndicator from '../components/activeLinkIndicator';
 
 class ArticleRenderer extends Highway.Renderer {
     onEnter() { [

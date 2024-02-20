@@ -36,9 +36,8 @@ class CompanyResource extends Resource
                 FileUpload::make('logo')
                     ->required(),
                 TextInput::make('url')
+                    ->prefixIcon('heroicon-o-link')
                     ->url()
-                    ->prefix('https://')
-                    ->suffix('.com')
                     ->required()
                     ->maxLength(255),
                 Textarea::make('description')
@@ -47,7 +46,6 @@ class CompanyResource extends Resource
                     ->cols(4)
                     ->required()
                     ->maxLength(255),
-
             ]);
     }
 

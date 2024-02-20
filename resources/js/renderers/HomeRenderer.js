@@ -1,5 +1,7 @@
 import Highway from '@dogstudio/highway';
-// import activeLinkIndicator from '../actions/activeLinkIndicator';
+import swiper from '../vendor/swiper';
+import photoswipe from '../vendor/photoswipe';
+// import activeLinkIndicator from '../components/activeLinkIndicator';
 
 class HomeRenderer extends Highway.Renderer {
     onEnter() { [
@@ -10,6 +12,8 @@ class HomeRenderer extends Highway.Renderer {
     ] }
     onEnterCompleted() { [
         // activeLinkIndicator(),
+        swiper(),
+        photoswipe(),
     ] }
     onLeaveCompleted() { [
         

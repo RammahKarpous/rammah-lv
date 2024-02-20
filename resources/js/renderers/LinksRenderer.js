@@ -1,5 +1,5 @@
 import Highway from '@dogstudio/highway';
-// import activeLinkIndicator from '../actions/activeLinkIndicator';
+// import activeLinkIndicator from '../components/activeLinkIndicator';
 
 class LinksRenderer extends Highway.Renderer {
     onEnter() { [

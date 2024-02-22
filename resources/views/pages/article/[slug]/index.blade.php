@@ -9,7 +9,7 @@ use App\Models\Article;
 state([
     'article',
     'prose' => "
-        prose-p:mb-3 prose-p:mt-2 prose-p:text-white
+        prose-p:mb-3 prose-p:mt-4 prose-p:text-white
         prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-2
         prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-6 prose-h3:mb-2
         prose-h4:text-xl prose-h4:font-bold prose-h4:mt-4 prose-h4:mb-2
@@ -28,17 +28,17 @@ mount(function (Article $article, Request $request) {
 
 <x-app-layout>
     @volt('article')
-        <div>
+        <div class="px-5">
             <livewire:shared.seo :title="$article->title" :description="$article->description" :keywords="$article->keywords" />
             
             <div id="header-img"
-                class="container mx-auto overflow-hidden rounded-lg h-[700px] flex items-center justify-center mt-16 relative">
+                class="container mx-auto overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
                 <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
-                    class="object-fill w-full h-full">
+                    class="object-cover w-full h-full">
             </div>
 
             <div class="max-w-4xl mx-auto mt-8 mb-12">
-                <div class="flex items-center justify-between">
+                <div class="flex flex-wrap items-center justify-between gap-10">
                     <a href="/articles" class="flex items-center gap-2 p-3 px-4 rounded-lg bg-primary text-wite">
                         <x-icons.arrow-left />
                         Back to all articles

@@ -44,6 +44,7 @@ class Article extends Model
     {
         return [
             FileUpload::make('header_image')
+                ->directory('articles')
                 ->imageEditor()
                 ->imagePreviewHeight(250)
                 ->required(),

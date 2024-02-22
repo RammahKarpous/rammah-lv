@@ -18,18 +18,18 @@ mount(function () {
 });
 ?>
 
-<div class="flex flex-col items-center justify-center gap-8 @if($companies) my-96 @endif">
+<div class="flex flex-col items-center justify-center gap-8 @if($companies) my-96 @endif px-5">
     @if ($title_subtext)
         <h2 class="text-5xl font-bold">{{ $title_subtext->companies_title }}</h2>
         <p class="max-w-2xl text-center">{{ $title_subtext->companies_subtext }}</p>
     @endif
 
     @if ($companies)
-        <section id="companies" class="flex flex-col items-center justify-center gap-8">
+        <section id="companies" class="flex flex-col items-center justify-center max-w-full gap-8 md:max-w-3xl">
             <ul class="!flex gap-5 overflow-x-auto swiper-pagination">
                 @foreach ($companies as $company)
                     <li>
-                        <img src="{{ Storage::url($company->logo) }}" alt="" class="cursor-pointer" />
+                        <img src="{{ Storage::url($company->logo) }}" alt="logo of {{ $company->name }}" class="cursor-pointer" />
                     </li>
                 @endforeach
             </ul>

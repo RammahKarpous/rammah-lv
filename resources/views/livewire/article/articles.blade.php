@@ -9,17 +9,19 @@ mount(function () {
 
     if ($this->articles->count() > 1) {
         $this->articles = $this->articles->skip(1);
+    } else {
+        $this->articles = $this->articles->skip(1);
     }
 });
 ?>
 
 <div>
-    <div class="container grid grid-cols-2 gap-3 mx-auto">
+    <div class="container grid grid-cols-1 gap-10 px-10 mx-auto mb-32 xl:gap-3 md:grid-cols-2">
         @if (count($articles) > 0)
             @foreach ($articles as $article)
                 <a href="article/{{ $article->slug }}" data-transition="article"
-                    class="flex items-center gap-6 p-5 transition rounded-xl article hover:bg-body-alt">
-                    <div class="w-[350px] shrink-0 rounded-lg h-[250px] bg-body-alt overflow-hidden shadow-lg">
+                    class="flex flex-col items-center gap-6 p-5 transition 2xl:flex-row rounded-xl article bg-body-alt xl:bg-transparent hover:bg-body-alt">
+                    <div class="md:w-[350px] 2xl:w-[350px] w-full lg:w-full shrink-0 rounded-lg h-[300px] md:h-[250px] bg-body-alt overflow-hidden shadow-lg">
                         <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
                             class="object-cover w-full h-full">
                     </div>

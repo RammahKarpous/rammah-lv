@@ -6,17 +6,19 @@ use function Livewire\Volt\{state, mount};
 state(['article']);
 
 mount(function () {
-    $this->article = Article::latest()->where('status', 'published')->with('category')->first();
+    $this->article = Article::latest()->with('category')->first();
 });
 ?>
 
 <div>
     @if ($article)
-        <div class="article">
+        <div class="max-w-xl mx-5 lg:max-w-5xl xl:max-w-full sm:mx-auto article">
             <a href="article/{{ $article->slug }}" data-transition="article"
-                class="flex items-center max-w-6xl gap-8 p-5 mx-auto my-20 transition rounded-lg hover:bg-body-alt">
-                <div class="w-[550px] shrink-0 rounded-lg h-[320px] bg-body-alt overflow-hidden shadow-lg">
-                    <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
+                class="flex flex-col items-center max-w-6xl gap-8 p-5 mx-auto my-20 transition rounded-lg lg:flex-row bg-body-alt xl:bg-transparent hover:bg-body-alt">
+                <div class="w-full lg:w-[450px] xl:w-[550px] shrink-0 rounded-lg h-[320px] md:h-[400px] lg:h-[320px] bg-body-alt overflow-hidden shadow-lg">
+                    <img 
+                        src="{{ Storage::url($article->header_image) }}" 
+                        alt="{{ $article->title }}"
                         class="object-cover w-full h-full">
                 </div>
     

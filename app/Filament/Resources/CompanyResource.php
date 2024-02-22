@@ -34,6 +34,7 @@ class CompanyResource extends Resource
                     ->required()
                     ->maxLength(255),
                 FileUpload::make('logo')
+                    ->directory('company_logos')
                     ->required(),
                 TextInput::make('url')
                     ->prefixIcon('heroicon-o-link')

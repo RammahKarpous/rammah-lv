@@ -14,6 +14,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('status')->default('draft');
             $table->foreignIdFor(Category::class, 'category_id');
             $table->string('header_image');
             $table->string('title');

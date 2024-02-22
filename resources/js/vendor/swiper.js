@@ -4,10 +4,9 @@ import Swiper from 'swiper';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 // Import Swiper modules
-import { Navigation, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
 export default function swiper() {
     const companies = document.querySelector('#companies');
@@ -16,7 +15,8 @@ export default function swiper() {
     console.log(logos);
 
     const swiper = new Swiper(companies, {
-        modules: [Navigation, Pagination],
+        modules: [Pagination],
+        spaceBetween: 20,
         effect: 'fade',
         fadeEffect: {
             crossFade: true

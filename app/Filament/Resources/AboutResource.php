@@ -35,7 +35,6 @@ class AboutResource extends Resource
                  */
                 Section::make('About Content')
                     ->collapsible()
-                    ->collapsed()
                     ->columns(1)
                     ->schema([
                         TextInput::make('page_title')
@@ -57,7 +56,6 @@ class AboutResource extends Resource
                  */
                 Section::make('Companies')
                     ->collapsible()
-                    ->collapsed()
                     ->columns(1)
                     ->schema([
                         TextInput::make('companies_title')
@@ -75,7 +73,6 @@ class AboutResource extends Resource
                  */
                 Section::make('Designs')
                     ->collapsible()
-                    ->collapsed()
                     ->columns(1)
                     ->schema([
                         TextInput::make('designs_title')

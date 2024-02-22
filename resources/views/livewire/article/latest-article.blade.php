@@ -6,7 +6,7 @@ use function Livewire\Volt\{state, mount};
 state(['article']);
 
 mount(function () {
-    $this->article = Article::latest()->with('category')->first();
+    $this->article = Article::latest()->where('status', 'published')->with('category')->first();
 });
 ?>
 

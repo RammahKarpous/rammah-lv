@@ -12,7 +12,6 @@ use Filament\Forms\Set;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 use  Illuminate\Support\Str;
 
@@ -48,6 +47,13 @@ class Article extends Model
                 ->imageEditor()
                 ->imagePreviewHeight(250)
                 ->required(),
+            Select::make('status')
+                ->default('draft')
+                ->required()
+                ->options([
+                    'draft' => 'Draft',
+                    'published' => 'Published',
+                ]),
             Section::make('Meta')
                 ->collapsible()
                 ->columns(2)
@@ -82,6 +88,8 @@ class Article extends Model
                         ->required()
                         ->maxLength(255),
                     Select::make('category_id')
+                        ->searchable()
+                        ->label('Category')
                         ->required()
                         ->options(Category::all()->pluck('category', 'id'))
                 ]),

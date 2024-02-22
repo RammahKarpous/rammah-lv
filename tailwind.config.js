@@ -20,11 +20,13 @@ export default {
                 primary: '#2765DC',
                 secondary: '#255FD0',
                 technology: {
-                    laravel: '#F05340',
-                    reactjs: '#00D8FF',
-                    wordpress: '#387599',
-                    tailwindcss: '#60BCF3',
-                    php: '#525D8C'
+                    laravel: { bg: '#F05340', text: '#F8F4F4', },
+                    reactjs: { bg: '#00D8FF', text: '#131212', },
+                    reactjs: { bg: '#00D8FF', text: '#131212', },
+                    reactjs: { bg: '#ffffff', text: '#000000', },
+                    wordpress: { bg: '#387599', text: '#F8F4F4', },
+                    tailwindcss: { bg: '#60BCF3', text: '#131212', },
+                    php: { bg: '#525D8C', text: '#F8F4F4', }
                 }
             },
             fontFamily: {

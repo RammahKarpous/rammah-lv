@@ -11,17 +11,11 @@
     height: auto;
     border-radius: 0;
     background: transparent;
-    opacity: .4;
+    opacity: .35;
+    cursor: pointer;
 }
 
 .swiper-pagination-bullet-active {
     opacity: 1;
     transition: all;
-}
-
-.swiper-pagination {
-    position: flex !important;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
 }

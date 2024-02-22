@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>@yield('title')</title>
-        <meta name="description" content="@yield('description')">
-        <meta name="keywords" content="@yield('keywords')">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
+    <title>@yield('title')</title>
+    <meta name="description" content="@yield('description')">
+    <meta name="keywords" content="@yield('keywords')">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <!-- Fonts -->
+    <link rel="shortcut icon" href="{{ asset('favicon.png') }}" type="image/x-icon">
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white" >
-        <div class="flex flex-col justify-between min-h-screen">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-            <main data-router-wrapper>
-                <article data-router-view="@yield('view')">
+    @production
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-QN5S64TVFG"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
 
-                    <!-- Navigation -->
-                    <livewire:shared.navigation />
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag('js', new Date());
 
-                    <!-- Page Content -->
-                    <div id="fade-content" class="overflow-x-hidden">
-                        {{ $slot }}
-                    </div>
-                </article>
-            </main>
+            gtag('config', 'G-QN5S64TVFG');
+        </script>
+    @endproduction
 
-            <!-- Footer -->
-            <livewire:shared.footer />
-        </div>
-    </body>
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+
+<body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white">
+    <div class="flex flex-col justify-between min-h-screen">
+
+        <main data-router-wrapper>
+            <article data-router-view="@yield('view')">
+
+                <!-- Navigation -->
+                <livewire:shared.navigation />
+
+                <!-- Page Content -->
+                <div id="fade-content" class="overflow-x-hidden">
+                    {{ $slot }}
+                </div>
+            </article>
+        </main>
+
+        <!-- Footer -->
+        <livewire:shared.footer />
+    </div>
+</body>
+
 </html>

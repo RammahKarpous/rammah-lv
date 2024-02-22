@@ -18,7 +18,14 @@ export default {
                 white: '#F8F4F4',
                 black: '#202426',
                 primary: '#2765DC',
-                secondary: '#255FD0'
+                secondary: '#255FD0',
+                technology: {
+                    laravel: '#F05340',
+                    reactjs: '#00D8FF',
+                    wordpress: '#387599',
+                    tailwindcss: '#60BCF3',
+                    php: '#525D8C'
+                }
             },
             fontFamily: {
                 inter: ['Inter', 'sans-serif'],

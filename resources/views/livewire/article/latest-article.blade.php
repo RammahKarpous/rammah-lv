@@ -6,7 +6,7 @@ use function Livewire\Volt\{state, mount};
 state(['article']);
 
 mount(function () {
-    $this->article = Article::latest()->first();
+    $this->article = Article::latest()->with('category')->first();
 });
 ?>
 
@@ -23,7 +23,7 @@ mount(function () {
                 <div>
                     <livewire:article.article-info 
                         :publish_date="$article->created_at" 
-                        :category="$article->category->category" 
+                        :category="$article->category" 
                         mb="4" />
                         
                     <h1 class="mb-3 text-4xl font-bold leading-snug">{{ $article->title }}</h1>
@@ -32,7 +32,7 @@ mount(function () {
             </a>
         </div>
     @else
-        <p>No articles found</p>
+        <p class="mt-10 text-center">No articles found</p>
     @endif
 </div>
 

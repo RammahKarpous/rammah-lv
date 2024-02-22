@@ -14,7 +14,7 @@ mount(function () {
 ?>
 
 <div>
-    <div class="grid grid-cols-2 gap-3">
+    <div class="container grid grid-cols-2 gap-3 mx-auto">
         @if (count($articles) > 0)
             @foreach ($articles as $article)
                 <a href="article/{{ $article->slug }}" data-transition="article"
@@ -27,7 +27,7 @@ mount(function () {
                     <div class="flex flex-col">
                         <livewire:article.article-info 
                             :publish_date="$article->created_at" 
-                            :category="$article->category->category" 
+                            :category="$article->category"
                             mb='4' />
 
                         <h2 class="mb-4 text-2xl font-bold">{{ $article->title }}</h2>

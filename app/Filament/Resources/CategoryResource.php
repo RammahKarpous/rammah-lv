@@ -5,10 +5,14 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
+use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+
+use  Illuminate\Support\Str;
 
 class CategoryResource extends Resource
 {
@@ -22,7 +26,19 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('category')
+                TextInput::make('category')
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (string $operation, $state, Set $set) {
+                        if ($operation !== 'create') {
+                            return;
+                        }
+
+                        $set('slug', Str::slug($state));
+                    })
+                    ->required()
+                    ->maxLength(255),
+                TextInput::make('slug')
+                    ->readonly()
                     ->required()
                     ->maxLength(255),
             ]);
@@ -33,6 +49,8 @@ class CategoryResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('category')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('slug')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()

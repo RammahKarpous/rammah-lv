@@ -29,7 +29,7 @@
                     <livewire:shared.navigation />
 
                     <!-- Page Content -->
-                    <div id="fade-content">
+                    <div id="fade-content" class="overflow-x-hidden">
                         {{ $slot }}
                     </div>
                 </article>

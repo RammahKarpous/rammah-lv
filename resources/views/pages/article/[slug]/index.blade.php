@@ -32,7 +32,7 @@ mount(function (Article $article, Request $request) {
             <livewire:shared.seo :title="$article->title" :description="$article->description" :keywords="$article->keywords" />
             
             <div id="header-img"
-                class="w-full overflow-hidden rounded-lg h-[700px] flex items-center justify-center mt-16 relative">
+                class="container mx-auto overflow-hidden rounded-lg h-[700px] flex items-center justify-center mt-16 relative">
                 <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
                     class="object-fill w-full h-full">
             </div>
@@ -43,7 +43,7 @@ mount(function (Article $article, Request $request) {
                         <x-icons.arrow-left />
                         Back to all articles
                     </a>
-                    <livewire:article.article-info :publish_date="$article->created_at" :category="$article->category->category" md="4" />
+                    <livewire:article.article-info :publish_date="$article->created_at" :category="$article->category" md="4" />
                 </div>
 
                 <h1 class="mt-8 text-5xl font-bold mb-9" id="article-title">{{ $article->title }}</h1>

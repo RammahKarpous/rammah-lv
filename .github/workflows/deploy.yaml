@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
@@ -18,10 +23,6 @@ jobs:
         run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Compoile the JavaScript and CSS
-        uses: actions/checkout@v3
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
         run: npm ci
 
       - name: Setup Project

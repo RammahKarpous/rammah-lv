@@ -1,0 +1,53 @@
+name: deployment
+
+on: workflow_dispatch
+
+jobs:
+  build-project:
+    name: Build project
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup PHP
+        uses: shivammathur/setup-php@master
+        with:
+          php-version: "8.1"
+          extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
+        
+      - name: Install Composer dependencies cache
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Compoile the JavaScript and CSS
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - run: npm ci
+
+      - name: Setup Project
+        run: |
+          php artisan cache:clear
+          php artisan config:clear
+          php artisan key:generate
+          npm run build
+        
+      - name: Set directory permission
+        run: chmod -R 777 storage bootstrap/cache
+  deploy-project:
+    name: Deploy project
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Deploy to server
+        if: ${{ seccess() }}
+        use: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+
+          stop_script: true
+          script: |
+            echo "I'm in the server"
+

@@ -29,7 +29,6 @@ jobs:
         run: |
           php artisan cache:clear
           php artisan config:clear
-          php artisan key:generate
           npm run build
         
       - name: Set directory permission

@@ -48,5 +48,11 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            echo "I'm in the server"
+            cd ${{ secrets.DOMAIN }}/releases
+            git pull
+
+            composer install --no-dev --no-interaction --prefer-dist
+            php artisan migrate
+            
+
 

@@ -48,11 +48,14 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            cd ${{ secrets.DOMAIN }}/releases
+            cd ${{ secrets.DOMAIN }}/test-repo
             git pull
 
             composer install --no-dev --no-interaction --prefer-dist
             php artisan migrate
             
+      - name:
+        run: |
+          rsync -r -e "ssh -p ${{ secrets.PORT }}" ${{ github.workspace }}/public/build ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.DOMAIN }}/public_html/build/
 
 

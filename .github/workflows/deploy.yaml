@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          
+
       - name: Setup PHP
         uses: shivammathur/setup-php@master
         with:
@@ -40,11 +40,11 @@ jobs:
 
     steps: 
       - name: Deploy to server
-        use: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY }}
+          key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           script: |
             echo "I'm in the server"

@@ -34,9 +34,11 @@ jobs:
         
       - name: Set directory permission
         run: chmod -R 777 storage bootstrap/cache
+
   deploy-project:
     name: Deploy project
     runs-on: ubuntu-latest
+    needs: build-project
 
     steps: 
       - name: Deploy to server

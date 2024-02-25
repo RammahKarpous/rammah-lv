@@ -49,7 +49,7 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             cd ${{ secrets.DOMAIN }}/test-repo
-            git pull
+            git pull https://rammahkarpous:${{ secrets.GITHUB_TOKEN }}@github.com/rammahkarpous/rammah-lv.git
 
             composer2 update
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader

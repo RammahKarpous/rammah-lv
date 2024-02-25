@@ -91,11 +91,10 @@ jobs:
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate
 
-            rsync -a 
-              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/images 
-              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/js 
-              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/build 
-              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/css ${{ secrets.DOMAIN }}/public_html/
+            cp -R ${{ secrets.DOMAIN}}${SOURCE_PATH}/assets ${{ secrets.DOMAIN }}/public_html/
+            cp -R ${{ secrets.DOMAIN}}${SOURCE_PATH}/js ${{ secrets.DOMAIN }}/public_html/
+            cp -R ${{ secrets.DOMAIN}}${SOURCE_PATH}/build ${{ secrets.DOMAIN }}/public_html/
+            cp -R ${{ secrets.DOMAIN}}${SOURCE_PATH}/css ${{ secrets.DOMAIN }}/public_html/
 
   clean-up:
     name: Clean up

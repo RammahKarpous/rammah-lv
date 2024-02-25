@@ -92,7 +92,7 @@ jobs:
             php artisan migrate
 
             cp -a 
-              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/assets 
+              ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/images 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/js 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/build 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/css ${{ secrets.DOMAIN }}/public_html/

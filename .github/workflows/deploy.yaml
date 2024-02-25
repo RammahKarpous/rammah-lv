@@ -85,8 +85,7 @@ jobs:
             tar xzf ${{ secrets.DOMAIN }}/seleases/${GITHUB_SHA}.tar.gz -C "${{ secrets.DOMAIN }}/releases/app/"
 
             cd ${{ secrets.DOMAIN }}/releases/app
-
-            composer2 update
-            composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+            ls -la
+            
 
 

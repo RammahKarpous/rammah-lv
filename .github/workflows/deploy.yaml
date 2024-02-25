@@ -68,7 +68,7 @@ jobs:
 
         # Passing environment variables to the script
         env:
-            GITUB_SHA: ${{ github.sha }}
+            GITHUB_SHA: ${{ github.sha }}
             SOURCE_PATH: "/releases/public/app"
 
         # Access server with the following credentials

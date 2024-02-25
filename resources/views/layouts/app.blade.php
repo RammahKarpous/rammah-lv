@@ -17,7 +17,9 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    @production
+    <?php $cookie = session()->get('doNotTrack'); ?>
+
+    @if ($cookie && $cookie === true && env('APP_ENV') === 'production')
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-QN5S64TVFG"></script>
         <script>
@@ -30,7 +32,7 @@
 
             gtag('config', 'G-QN5S64TVFG');
         </script>
-    @endproduction
+    @endif
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])

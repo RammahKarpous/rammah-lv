@@ -89,3 +89,18 @@ jobs:
             composer2 update
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate
+
+  clean-up:
+    name: Clean up
+    runs-on: ubuntu-latest
+    needs: [ build-project, deploy-project ]
+    steps:
+      - name: Activate release
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd ${{ secrets.DOMAIN }}/releases && ls -t -1 | tail -n +6 | xargs rm -rf

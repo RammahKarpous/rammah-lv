@@ -81,4 +81,5 @@ jobs:
 
           # Script to execute on remote server
           script: |
+            cd ${{ secrets.DOMAIN }}
             ls -la

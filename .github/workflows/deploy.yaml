@@ -81,5 +81,9 @@ jobs:
 
           # Script to execute on remote server
           script: |
-            cd ${{ secrets.DOMAIN }}/releases
+            mkdir -p ${{ secrets.DOMAIN }}/releases/app
+            
+            tar -xzvf ${{ secrets.DOMAIN }}/releases/${GITHUB_SHA}.tar.gz -C ${{ secrets.DOMAIN }}/releases/app
+
+            cd ${{ secrets.DOMAIN }}/releases/app
             ls -la

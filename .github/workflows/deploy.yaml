@@ -51,6 +51,7 @@ jobs:
             cd ${{ secrets.DOMAIN }}/test-repo
             git pull
 
+            composer2 update
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate
             

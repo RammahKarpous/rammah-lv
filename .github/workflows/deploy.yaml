@@ -69,7 +69,8 @@ jobs:
         # Passing environment variables to the script
         env:
             GITHUB_SHA: ${{ github.sha }}
-            SOURCE_PATH: "/releases/public/app"
+            SOURCE_PATH: "/releases/app/public"
+            DESTINATION_PATH: "/releases/"
 
         # Access server with the following credentials
         with:
@@ -89,6 +90,8 @@ jobs:
             composer2 update
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate
+
+            cp -a ${{ secrets.DOMAIN}}${SOURCE_PATH}/assets ${{ secrets.DOMAIN}}${SOURCE_PATH}/js ${{ secrets.DOMAIN}}${SOURCE_PATH}/build ${{ secrets.DOMAIN}}${SOURCE_PATH}/css ${{ secrets.DOMAIN }}/public_html/
 
   clean-up:
     name: Clean up

@@ -31,8 +31,16 @@ jobs:
           php artisan config:clear
           npm run build
         
-      - name: Set directory permission
-        run: chmod -R 777 storage bootstrap/cache
+      - name: Create deployment
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+        run: tar -czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
+
+      - name: distribution
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-build
+          path: ${{ github.sha }}.tar.gz
 
   deploy-project:
     name: Deploy project
@@ -40,23 +48,45 @@ jobs:
     needs: build-project
 
     steps: 
+      - uses: actions/download-artifact@v2
+        with: 
+          name: app-build
+
+      # Access the server and determine the source and target path
       - name: Deploy to server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
+          source: ${{ github.sha }}.tar.gz
+          target: ${{ secrets.DOMAIN }}/releases # The target is where the zip files will be placed
+   
+      - name: Extract archived and create directories
+        uses: appleboy/ssh-action@master
+
+        # Passing environment variables to the script
+        env:
+            GITUB_SHA: ${{ github.sha }}
+            SOURCE_PATH: "/releases/public/app"
+
+        # Access server with the following credentials
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          envs: GITUB_SHA
+
+          # Script to execute on remote server
           script: |
-            cd ${{ secrets.DOMAIN }}/test-repo
-            git pull https://rammahkarpous:${{ secrets.GITHUB_TOKEN }}@github.com/rammahkarpous/rammah-lv.git
+            mkdir -p ${{ secrets.DOMAIN }}/releases/app
+            tar xzf ${{ secrets.DOMAIN }}/seleases/${GITHUB_SHA}.tar.gz -C "${{ secrets.DOMAIN }}/releases/app/"
+
+            cd ${{ secrets.DOMAIN }}/releases/app
 
             composer2 update
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
-            php artisan migrate
-            
-      - name:
-        run: |
-          rsync -r -e "ssh -p ${{ secrets.PORT }}" ${{ github.workspace }}/public/build ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.DOMAIN }}/public_html/build/
 
 

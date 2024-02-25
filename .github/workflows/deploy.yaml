@@ -86,6 +86,3 @@ jobs:
 
             cd ${{ secrets.DOMAIN }}/releases/app
             ls -la
-            
-
-

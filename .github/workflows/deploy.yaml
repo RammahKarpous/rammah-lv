@@ -91,7 +91,7 @@ jobs:
             composer2 install --no-dev --no-interaction --prefer-dist --optimize-autoloader
             php artisan migrate
 
-            cp -a 
+            rsync -a 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/images 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/js 
               ${{ secrets.DOMAIN}}${SOURCE_PATH}/releases/app/public/build 

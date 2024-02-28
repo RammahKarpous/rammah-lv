@@ -1,0 +1,21 @@
+name: Test application
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    test:
+        name: Test application
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Setup PHP
+              uses: shivammathur/setup-php@master
+              with:
+                  php-version: '8.2'
+
+            - uses: actions/checkout@v3
+            - name: Run tests
+              run: php artisan test

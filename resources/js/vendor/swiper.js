@@ -11,9 +11,7 @@ import { Pagination } from 'swiper/modules';
 export default function swiper() {
     const companies = document.querySelector('#companies');
     const logos = document.querySelectorAll('#companies .swiper-pagination img');
-
-    console.log(logos);
-
+    
     const swiper = new Swiper(companies, {
         modules: [Pagination],
         spaceBetween: 20,

@@ -33,8 +33,6 @@ mount(function () {
                 </div>
             </a>
         </div>
-    @else
-        <p class="mt-10 text-center">No articles found</p>
     @endif
 </div>
 

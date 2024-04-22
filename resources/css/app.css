@@ -9,6 +9,15 @@ p {
 @tailwind components;
 @tailwind utilities;
 
+.page-heading {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.page-heading .letter {
+    display: inline-block;
+    line-height: 1em;
+}
 
 .hljs {
     @apply !bg-border;

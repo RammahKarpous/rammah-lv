@@ -60,6 +60,8 @@
 		<!-- Footer -->
 		<livewire:shared.footer />
 	</div>
+
+	@yield('scripts')
 </body>
 
 </html>

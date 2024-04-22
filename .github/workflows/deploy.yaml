@@ -20,7 +20,9 @@ jobs:
           extensions: mbstring, ctype, fileinfo, openssl, PDO, bcmath, json, tokenizer, xml
         
       - name: Install Composer dependencies cache
-        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+        run: |
+          composer update
+          composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
       - name: Compoile the JavaScript and CSS
         run: npm ci

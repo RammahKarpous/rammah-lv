@@ -16,7 +16,7 @@ mount(function () {
 ?>
 
 <div>
-    <div class="container grid grid-cols-1 gap-10 px-10 mx-auto mb-32 xl:gap-3 md:grid-cols-2">
+    <div class="container grid grid-cols-1 gap-10 px-10 mb-32 xl:gap-3 md:grid-cols-2">
         @if (count($articles) > 0)
             @foreach ($articles as $article)
                 <a href="article/{{ $article->slug }}" data-transition="article"

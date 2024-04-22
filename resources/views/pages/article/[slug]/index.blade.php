@@ -25,21 +25,20 @@ mount(function (Article $article, Request $request) {
 });
 ?>
 
-
 <x-app-layout>
     @volt('article')
-        <div class="px-5">
+        <div class="px-5 mt-32">
             <livewire:shared.seo :title="$article->title" :description="$article->description" :keywords="$article->keywords" />
             
             <div id="header-img"
-                class="container mx-auto overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
+                class="container overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
                 <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
                     class="object-cover w-full h-full">
             </div>
 
             <div class="max-w-4xl mx-auto mt-8 mb-12">
                 <div class="flex flex-wrap items-center justify-between gap-10">
-                    <a href="/articles" class="flex items-center gap-2 p-3 px-4 rounded-lg bg-primary text-wite">
+                    <a href="/" class="flex items-center gap-2 p-3 px-4 rounded-lg bg-primary text-wite">
                         <x-icons.arrow-left />
                         Back to all articles
                     </a>

@@ -5,7 +5,6 @@ import activeLinkIndicator from '../../components/activeLinkIndicator';
 class Fade extends Highway.Transition {
 	out({ done }) {
 		const tl = gsap.timeline()
-
         const articles = document.querySelectorAll('.article');
 
         tl.to(articles, { opacity: 0, y: 20, duration: .3, stagger: 0, onComplete: function () { done() } }, 0)

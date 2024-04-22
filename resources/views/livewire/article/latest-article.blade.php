@@ -3,7 +3,7 @@ use App\Models\Article;
 
 use function Livewire\Volt\{state, mount};
 
-state(['article']);
+state(['article', 'margin' => 'my-20']);
 
 mount(function () {
     $this->article = Article::latest()->with('category')->first();
@@ -12,9 +12,9 @@ mount(function () {
 
 <div>
     @if ($article)
-        <div class="max-w-xl mx-5 lg:max-w-5xl xl:max-w-full sm:mx-auto article">
+        <div class="max-w-xl mx-5 {{ $margin }} lg:max-w-5xl xl:max-w-full sm:mx-auto article">
             <a href="article/{{ $article->slug }}" data-transition="article"
-                class="flex flex-col items-center max-w-6xl gap-8 p-5 mx-auto my-20 transition rounded-lg lg:flex-row bg-body-alt xl:bg-transparent hover:bg-body-alt">
+                class="flex flex-col items-center max-w-6xl gap-8 py-5 mx-auto transition rounded-lg lg:flex-row bg-body-alt xl:bg-transparent hover:bg-body-alt">
                 <div class="w-full lg:w-[450px] xl:w-[550px] shrink-0 rounded-lg h-[320px] md:h-[400px] lg:h-[320px] bg-body-alt overflow-hidden shadow-lg">
                     <img 
                         src="{{ Storage::url($article->header_image) }}" 

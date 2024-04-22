@@ -4,7 +4,6 @@ import gsap from 'gsap'
 class Fade extends Highway.Transition {
 	out({ done }) {
 		const tl = gsap.timeline()
-		
 		const fadeContent = document.querySelector('#fade-content');
 
 		tl.fromTo(fadeContent, { opacity: 1 }, {
@@ -19,7 +18,6 @@ class Fade extends Highway.Transition {
 		window.scrollTo(0, 0);
 		
 		const tl = gsap.timeline()
-
 		const fadeContent = document.querySelector('#fade-content');
 		
 		tl

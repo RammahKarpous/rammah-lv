@@ -1,15 +1,10 @@
-@section('view', 'links')
-
-<?php
-use function Livewire\Volt\{state, mount};
-
-// state(['']);
-
-// mount(function () {});
-?>
+@php
+	$links = [
+	    ["name" => "Rammah Karpous", "url" => "https://rammah.dev"],
+	    ["name" => "Rammah Karpous", "url" => "https://rammah.dev"],
+	];
+@endphp
 
 <x-app-layout>
-    @volt('')
-        <div></div>
-    @endvolt
+    <div></div>
 </x-app-layout>

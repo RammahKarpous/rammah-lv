@@ -6,6 +6,7 @@
     keywords="Tech Blog, Blog, Tech, Programmer Blog, Rammah Karpous, Front-end development, Back-end development, Web development, Web design, Responsive web design" />
 
 <x-app-layout>
+    <span class="block w-4 h-20"></span>
     <livewire:article.latest-article />
     <livewire:article.articles />
 </x-app-layout>

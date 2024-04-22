@@ -9,7 +9,7 @@ mount(function () {
 });
 ?>
 
-<div class="container flex flex-col items-center justify-center gap-8 px-5 mx-auto my-56">
+<div class="container flex flex-col items-center justify-center gap-8 px-5 my-56">
     @if ($content)
         <h2 class="text-5xl font-bold">{{ $content->designs_title }}</h2>
         <p class="max-w-2xl text-center">{{ $content->designs_subtext }}</p>

@@ -10,27 +10,24 @@ export default {
     ],
 
     theme: {
+        container: {
+            center: true,
+            padding: '1rem',
+        },
         extend: {
             colors: {
-                body: '#131212',
-                "body-alt": "#181818",
-                border: '#1E1D1D',
+                body: '#0F1119',
+                "body-alt": "#10121A",
+                border: '#141620',
+                code: '#20242a',
                 white: '#F8F4F4',
                 black: '#202426',
                 primary: '#2765DC',
                 secondary: '#255FD0',
-                technology: {
-                    laravel: { bg: '#F05340', text: '#F8F4F4', },
-                    reactjs: { bg: '#00D8FF', text: '#131212', },
-                    reactjs: { bg: '#00D8FF', text: '#131212', },
-                    reactjs: { bg: '#ffffff', text: '#000000', },
-                    wordpress: { bg: '#387599', text: '#F8F4F4', },
-                    tailwindcss: { bg: '#60BCF3', text: '#131212', },
-                    php: { bg: '#525D8C', text: '#F8F4F4', }
-                }
             },
             fontFamily: {
                 inter: ['Inter', 'sans-serif'],
+                quicksand: ['Quicksand', 'sans-serif'],
             },
         },
     },

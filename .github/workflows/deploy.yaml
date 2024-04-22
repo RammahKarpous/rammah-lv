@@ -94,6 +94,7 @@ jobs:
             php artisan migrate
 
             cp -R ${{ secrets.DOMAIN}}/releases/app/public/js ${{ secrets.DOMAIN }}/public_html/
+            cp -R ${{ secrets.DOMAIN}}/releases/app/public/images ${{ secrets.DOMAIN }}/public_html/
             cp -R ${{ secrets.DOMAIN}}/releases/app/public/build ${{ secrets.DOMAIN }}/public_html/
             cp -R ${{ secrets.DOMAIN}}/releases/app/public/css ${{ secrets.DOMAIN }}/public_html/
 

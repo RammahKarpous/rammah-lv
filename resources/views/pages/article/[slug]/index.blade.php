@@ -10,6 +10,7 @@ state([
     'article',
     'prose' => "
         prose-p:mb-3 prose-p:mt-4 prose-p:text-white
+        prose-h1:text-4xl prose-h1:font-bold prose-h1:mt-10 prose-h1:mb-4
         prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-2
         prose-h3:text-2xl prose-h3:font-bold prose-h3:mt-6 prose-h3:mb-2
         prose-h4:text-xl prose-h4:font-bold prose-h4:mt-4 prose-h4:mb-2
@@ -50,8 +51,6 @@ mount(function (Article $article, Request $request) {
 
                 <section class="{{ $prose }}" id="article-content">{!! (new Parsedown())->text($article->body) !!}</section>
             </div>
-
-
         </div>
     @endvolt
 </x-app-layout>

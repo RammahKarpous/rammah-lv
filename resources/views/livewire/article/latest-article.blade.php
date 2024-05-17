@@ -3,7 +3,7 @@ use App\Models\Article;
 
 use function Livewire\Volt\{state, mount};
 
-state(['article', 'margin' => 'my-20']);
+state(['article', 'margin' => 'my-20', "headingType"]);
 
 mount(function () {
     $this->article = Article::latest()->with('category')->first();
@@ -28,7 +28,11 @@ mount(function () {
                         :category="$article->category" 
                         mb="4" />
                         
-                    <h1 class="mb-3 text-4xl font-bold leading-snug">{{ $article->title }}</h1>
+                    @if ($headingType === "h1")
+                        <h1 class="mb-3 text-4xl font-bold leading-snug">{{ $article->title }}</h1>
+                    @else
+                        <h2 class="mb-3 text-2xl font-bold leading-snug md:text-4xl">{{ $article->title }}</h2>
+                    @endif
                     <p>{{ Str::limit($article->description, 140) }}</p>
                 </div>
             </a>

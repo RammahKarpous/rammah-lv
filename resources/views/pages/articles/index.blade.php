@@ -7,6 +7,6 @@
 
 <x-app-layout>
     <span class="block w-4 h-20"></span>
-    <livewire:article.latest-article />
+    <livewire:article.latest-article headingType="h1" />
     <livewire:article.articles />
 </x-app-layout>

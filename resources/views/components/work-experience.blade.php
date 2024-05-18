@@ -1,4 +1,4 @@
-<section class="mx-auto mb-12 max-w-7xl sm:my-60">
+<section class="mx-auto my-40 mb-12 max-w-7xl md:my-60">
     <h2 class="text-[#151823] -mb-2 mx-4 font-bold text-6xl md:text-[90px]">{{ __("Work experience") }}</h2>
 
     @foreach (__("work-experience") as $experience)

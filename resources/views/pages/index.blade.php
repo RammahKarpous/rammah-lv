@@ -7,12 +7,14 @@
 		<livewire:pages.about.header />
 
 		<section class="container flex items-start justify-center gap-5 px-4 mx-auto mb-20 max-lg:flex-col lg:gap-10 about-me">
-			<div class="flex flex-col max-w-screen-lg gap-4 text-center sm:text-lg md:text-2xl">
+			<div class="flex flex-col max-w-screen-lg gap-4 text-xl text-center md:text-2xl">
 				@foreach (__("home.header.content_paragraphs") as $paragraph)
 					<p>{{ $paragraph }}</p>
 				@endforeach
 			</div>
 		</section>
+
+		<x-technologies />
 
 		<x-work-experience />
 

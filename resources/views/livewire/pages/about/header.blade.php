@@ -14,10 +14,10 @@
 		<p class="text-xl font-bold tracking-[0.3em] text-center uppercase greeting-with-name max-md:mt-4">{{ __("Hello! 👋🏾 I'm Rammah") }}</p>
 	</section>
 
-	{{-- <span 
+	<span 
 		class="absolute w-4 h-10 transition-all duration-300 cursor-pointer hover:h-12 bottom-10 hover:bottom-6" 
 		id="scroll-down">
 		
 		<x-icons.arrow-down /> 
-	</span>--}}
+	</span>
 </header>

@@ -9,8 +9,11 @@ if ( auth()->check() ) {
     Route::redirect('/app', '/app/login');
 }
 
+// PagesController
 Route::get('/', [PagesController::class, 'index'])->name('home');
 Route::get('/links', [PagesController::class, 'links'])->name('links');
+
+// ArticlesController
 Route::get('/articles', [ArticlesController::class, 'index'])->name('articles');
 Route::get('/article/{slug}', [ArticlesController::class, 'show'])->name('show');
 

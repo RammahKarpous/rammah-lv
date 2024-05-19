@@ -15,7 +15,7 @@
 	</section>
 
 	<span 
-		class="absolute w-4 h-10 transition-all duration-300 cursor-pointer hover:h-12 bottom-10 hover:bottom-6" 
+		class="absolute w-16 h-16 pt-3 pb-5 transition-all duration-300 rounded-full cursor-pointer hover:pt-7 hover:pb-3 bottom-10" 
 		id="scroll-down">
 		
 		<x-icons.arrow-down /> 

@@ -2,7 +2,7 @@
 
 @tailwind base;
 
-p {
+p, a {
     @apply font-quicksand;
 }
 

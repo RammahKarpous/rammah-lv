@@ -4,6 +4,7 @@
     <div class="flex flex-wrap items-center justify-center gap-5">
         <x-icons.technologies.tailwindcss />
         <x-icons.technologies.reactjs />
+        <x-icons.technologies.nextjs />
         <x-icons.technologies.mysql />
         <x-icons.technologies.javascript />
         <x-icons.technologies.php />

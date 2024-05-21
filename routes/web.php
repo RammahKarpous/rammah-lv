@@ -15,7 +15,7 @@ Route::get('/links', [PagesController::class, 'links'])->name('links');
 
 // ArticlesController
 Route::get('/articles', [ArticlesController::class, 'index'])->name('articles');
-Route::get('/article/{slug}', [ArticlesController::class, 'show'])->name('show');
+Route::get('/article/{slug}', [ArticlesController::class, 'show'])->name('articles.show');
 
 Route::get('/do-not-track', function () {
     session()->put('doNotTrack', true);

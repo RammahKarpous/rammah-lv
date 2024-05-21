@@ -42,16 +42,18 @@
 </head>
 
 <body class="font-sans antialiased text-black bg-gray-100 dark:bg-body dark:text-white">
-	<div class="flex flex-col justify-between min-h-screen">
+	<span class="fixed w-8 h-8 border border-gray-400 rounded-full cursor-circle max-xl:hidden"></span>
+
+	<div class="z-50 flex flex-col justify-between min-h-screen">
 
 		<main data-router-wrapper>
 			<article data-router-view="@yield("view")">
 
 				<!-- Navigation -->
-				<livewire:shared.navigation />
+				<x-full-screen-nav />
 
 				<!-- Page Content -->
-				<div id="fade-content" class="overflow-x-hidden">
+				<div id="fade-content" class="relative z-0 overflow-x-hidden">
 					{{ $slot }}
 				</div>
 			</article>

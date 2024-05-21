@@ -2,9 +2,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function animateTechnologies() {
-
     gsap.registerPlugin(ScrollTrigger)
-    
+
     const technologies = document.querySelector('#technologies');
     const groups = technologies.querySelectorAll('.group')
 
@@ -14,6 +13,7 @@ export default function animateTechnologies() {
             toggleActions: "play none none reverse"
         }
     });
+
     tl
         .addLabel("Fade container")
         .from(technologies, {

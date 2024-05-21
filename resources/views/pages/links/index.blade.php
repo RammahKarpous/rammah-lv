@@ -1,3 +1,5 @@
+@section("view", "links")
+
 @php
 	$links = [
 	    ["name" => "VioWebX Innovations", "url" => "https://viowebx.com"],

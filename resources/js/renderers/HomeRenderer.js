@@ -3,6 +3,7 @@ import swiper from '../vendor/swiper';
 import photoswipe from '../vendor/photoswipe';
 import animatePageHeading from '../components/animatePageHeading';
 import animateTechnologies from '../animation/home/animateTechnologies';
+import animateNavigation from '../components/animateNavigation';
 
 class HomeRenderer extends Highway.Renderer {
     onEnter() { [
@@ -15,6 +16,7 @@ class HomeRenderer extends Highway.Renderer {
         // activeLinkIndicator(),
         swiper(),
         photoswipe(),
+        animateNavigation()
     ] }
     onLeaveCompleted() { [
         

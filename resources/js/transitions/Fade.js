@@ -1,5 +1,6 @@
 import Highway from '@dogstudio/highway';
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 class Fade extends Highway.Transition {
 	out({ done }) {
@@ -16,10 +17,14 @@ class Fade extends Highway.Transition {
 	in({ from, done }) {
 		from.remove()
 		window.scrollTo(0, 0);
+
+		gsap.registerPlugin(ScrollTrigger);
 		
 		const tl = gsap.timeline()
 		const fadeContent = document.querySelector('#fade-content');
 		
+		ScrollTrigger.refresh();
+
 		tl
 			.fromTo(fadeContent, { opacity: 0 }, {
 			opacity: 1, duration: .2, onComplete: function () {

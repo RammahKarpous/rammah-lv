@@ -13,11 +13,4 @@
 
 		<p class="text-xl font-bold tracking-[0.3em] text-center uppercase greeting-with-name max-md:mt-4">{{ __("Hello! 👋🏾 I'm Rammah") }}</p>
 	</section>
-
-	<span 
-		class="absolute w-16 h-16 pt-3 pb-5 transition-all duration-300 rounded-full cursor-pointer hover:pt-7 hover:pb-3 bottom-10" 
-		id="scroll-down">
-		
-		<x-icons.arrow-down /> 
-	</span>
 </header>

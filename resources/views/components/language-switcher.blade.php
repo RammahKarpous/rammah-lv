@@ -1,8 +1,8 @@
 @php
-	$locales = [["code" => "nl", "label" => "Switch naar het Nederlands"], ["code" => "en", "label" => "Switch to English"]];
+	$locales = [["code" => "nl", "label" => "NL"], ["code" => "en", "label" => "EN"]];
 @endphp
 
-<nav>
+<nav class="relative z-20 mt-4">
 	<ul>
 		@foreach ($locales as $locale)
 			@if (app()->getLocale() !== $locale["code"])

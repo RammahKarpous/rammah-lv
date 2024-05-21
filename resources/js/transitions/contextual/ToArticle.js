@@ -1,6 +1,5 @@
 import Highway from '@dogstudio/highway';
 import gsap from 'gsap'
-import activeLinkIndicator from '../../components/activeLinkIndicator';
 
 class Fade extends Highway.Transition {
 	out({ done }) {

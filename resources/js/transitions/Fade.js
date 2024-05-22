@@ -22,6 +22,9 @@ class Fade extends Highway.Transition {
 		
 		const tl = gsap.timeline()
 		const fadeContent = document.querySelector('#fade-content');
+		const body = document.querySelector('body');
+
+		body.style.overflow = 'scroll';
 		
 		ScrollTrigger.refresh();
 

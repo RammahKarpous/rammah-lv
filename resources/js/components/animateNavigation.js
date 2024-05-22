@@ -6,6 +6,7 @@ export default function animateNavigation() {
 
     const fullScreenNavigation = document.querySelector('#full-screen-nav');
     const mainNavLinks = fullScreenNavigation.querySelectorAll("#main-nav li");
+    const body = document.querySelector('body');
     const contacts = document.querySelector('#contacts');
 
     const nav = gsap.timeline({ reversed: true });
@@ -17,6 +18,7 @@ export default function animateNavigation() {
         .to(bars[2], { duration: .2, rotate: '-45deg', y: -10 }, 0)
 
     nav
+        .to(body, { duration: 0, overflow: "hidden" })
         .to(fullScreenNavigation, { duration: 0,  width: "100%" })
         .to(fullScreenNavigation, { duration: 2, ease: "power4.inOut", opacity: 100  }, "-=.2")
         .from(mainNavLinks, { duration: .3, x: 50, opacity: 0, stagger: 0.05 }, "-=1.3")

@@ -16,7 +16,7 @@
     <div class="fixed top-0 right-0 z-0 flex flex-wrap items-center justify-between w-0 h-screen overflow-hidden opacity-0 bg-body" id="full-screen-nav">
         <div class="container flex justify-between mx-auto lg:items-end max-lg:flex-col">
             <nav id="main-nav">
-                <ul class="flex flex-col max-sm:gap-5">
+                <ul class="flex flex-col gap-12 max-sm:gap-5">
                     @foreach (__('navigation.links') as $link)
                         @php
                             $active_link = Request::route()->named($link['name']) ? "text-primary" : "";

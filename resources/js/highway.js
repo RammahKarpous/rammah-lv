@@ -13,7 +13,7 @@ const H = new Highway.Core({
         default: Fade,
         contextual: {
             article: ToArticle
-          }
+        }
     },
     renderers: {
         article: ArticleRenderer,
@@ -25,12 +25,41 @@ const H = new Highway.Core({
 
 const cursorCircle = document.querySelector('.cursor-circle');
 
+function cursorHoverEffect() {
+    gsap.to(cursorCircle, {
+        duration: .3,
+        background: "#255FD0",
+        width: 12,
+        height: 12,
+    });
+}
+
+function cursorLeaveEffect() {
+    gsap.to(cursorCircle, {
+        duration: .3,
+        background: "#fff",
+        width: 8,
+        height: 8,
+    });
+}
+
 // Let cursor circle follow the cursor with gsap
 window.addEventListener('mousemove', (e) => {
     const location = e;
+    const allElements = document.querySelectorAll("#hamburger-menu, a")
 
     gsap.to(cursorCircle, {
-        x: location.clientX - 20,
-        y: location.clientY - 20,
+        x: location.clientX - 11,
+        y: location.clientY - 11,
     });
+
+    allElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursorHoverEffect();
+        });
+    
+        element.addEventListener('mouseleave', () => {
+            cursorLeaveEffect();
+        });
+    })
 });

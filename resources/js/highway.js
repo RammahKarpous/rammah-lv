@@ -23,6 +23,10 @@ const H = new Highway.Core({
     }
 });
 
+H.on('NAVIGATE_IN', ({location, from, to}) => {
+    cursorLeaveEffect();
+})
+
 const cursorCircle = document.querySelector('.cursor-circle');
 
 function cursorHoverEffect() {

@@ -3,6 +3,7 @@
 @php
 	$links = [
 	    ["name" => __("navigation.links.1.label"), "url" => "/" . app()->getLocale() . "/articles", "target" => "_self"],
+	    ["name" => "LinkedIn", "url" => "https://linkedin.com/in/rammahkarpous", "target" => "_blank"],
 	    ["name" => "Github", "url" => "https://github.com/rammahkarpous", "target" => "_blank"],
 	    ["name" => "Instagram", "url" => "https://instagram.com/rammahkarpous", "target" => "_blank"],
 	    // ["name" => "Patreon", "url" => "https://rammahkarpous.com"],

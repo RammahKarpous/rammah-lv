@@ -18,6 +18,14 @@
 
 		<x-work-experience />
 
+		<div class="flex flex-col items-center justify-center gap-4 mb-60">
+			<h2 class="mb-5 text-5xl font-bold">{{ __('Personal projects') }}</h2>
+
+			@foreach (__('home.projects') as $project)
+				<livewire:pages.home.project isComingSoon :project="$project" />
+			@endforeach
+		</div>
+
 		{{-- Articles --}}
 		<section class="max-w-6xl px-4 mx-auto mb-20">
 			<h2 class="mb-5 text-5xl font-bold">{{ __("Latest article") }}</h2>

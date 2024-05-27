@@ -12,7 +12,10 @@ mount(function () {
 
 <div>
 	@if ($article)
-		<h2 class="mb-5 text-5xl font-bold">{{ __("Latest article") }}</h2>
+
+		@if (Route::currentRouteName() === "home")
+			<h2 class="mb-5 text-5xl font-bold">{{ __("Latest article") }}</h2>
+		@endif
 
 		<div class="max-w-xl {{ $margin }} lg:max-w-5xl xl:max-w-full sm:mx-auto article">
 			<a href="/{{ app()->getLocale() }}/article/{{ $article->slug }}" data-transition="article"
@@ -34,5 +37,10 @@ mount(function () {
 				</div>
 			</a>
 		</div>
+	@else
+		@if (Route::currentRouteName() === "articles")
+			<h2 class="mb-10 text-5xl font-bold text-center">{{ __("Latest article") }}</h2>
+			<p class="text-center">{{ __("No article are yet published") }}</p>
+		@endif
 	@endif
 </div>

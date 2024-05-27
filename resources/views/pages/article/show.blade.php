@@ -1,4 +1,4 @@
-@section('view', 'article')
+@section("view", "article")
 
 <?php
 use function Livewire\Volt\{state, mount};
@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 
 state([
-    'article',
-    'prose' => "
+    "article",
+    "prose" => "
         prose-p:mb-3 prose-p:mt-4 prose-p:text-white
         prose-h1:text-4xl prose-h1:font-bold prose-h1:mt-10 prose-h1:mb-4
         prose-h2:text-3xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-2
@@ -22,35 +22,36 @@ state([
 ]);
 
 mount(function (Article $article, Request $request) {
-    $this->article = $article::where('slug', $request->slug)->firstOrFail();
+    $this->article = $article::where("slug", $request->slug)->firstOrFail();
 });
 ?>
 
 <x-app-layout>
-    @volt('article')
-        <div class="px-5 mt-32">
-            <livewire:shared.seo :title="$article->title" :description="$article->description" :keywords="$article->keywords" />
-            
-            <div id="header-img"
-                class="container overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
-                <img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}"
-                    class="object-cover w-full h-full">
-            </div>
+	@volt("article")
+		<div class="px-5 mt-32">
+			@section("title", $article->title)
+            @section("description", $article->description)
+            @section("keywords", implode(", ", $article->tag))
 
-            <div class="max-w-4xl mx-auto mt-8 mb-12">
-                <div class="flex flex-wrap items-center justify-between gap-10">
-                    <a href="/" class="flex items-center gap-2 p-3 px-4 rounded-lg bg-primary text-wite">
-                        <x-icons.arrow-left />
-                        Back to all articles
-                    </a>
-                    <livewire:article.article-info :publish_date="$article->created_at" :category="$article->category" md="4" />
-                </div>
+		<div id="header-img"
+			class="container overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
+			<img src="{{ Storage::url($article->header_image) }}" alt="{{ $article->title }}" class="object-cover w-full h-full">
+		</div>
 
-                <h1 class="mt-8 text-5xl font-bold mb-9" id="article-title">{{ $article->title }}</h1>
-                <p class="mb-4 text-lg" id="article-description">{{ $article->description }}</p>
+		<div class="max-w-4xl mx-auto mt-8 mb-12">
+			<div class="flex flex-wrap items-center justify-between gap-10">
+				<a href="/" class="flex items-center gap-2 p-3 px-4 rounded-lg bg-primary text-wite">
+					<x-icons.arrow-left />
+					Back to all articles
+				</a>
+				<livewire:article.article-info :publish_date="$article->created_at" :category="$article->category" md="4" />
+			</div>
 
-                <section class="{{ $prose }}" id="article-content">{!! (new Parsedown())->text($article->body) !!}</section>
-            </div>
-        </div>
-    @endvolt
+			<h1 class="mt-8 text-5xl font-bold mb-9" id="article-title">{{ $article->title }}</h1>
+			<p class="mb-4 text-lg" id="article-description">{{ $article->description }}</p>
+
+			<section class="{{ $prose }}" id="article-content">{!! (new Parsedown())->text($article->body) !!}</section>
+		</div>
+	</div>
+@endvolt
 </x-app-layout>

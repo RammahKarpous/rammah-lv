@@ -13,7 +13,7 @@ return [
     [
         "slug" => "kanuka-digital",
         "title" => "Kanuka Digital",
-        "period" => "Nov 2029 - Mar 2020",
+        "period" => "Nov 2019 - Mar 2020",
         "description" => 
             "During my studies, I worked part-time in a small team as a Junior WordPress Developer at a company called Kanuka Digital in Stafford. In that role, I was primarily involved in front-end development, using HTML, CSS, and JavaScript. Occasionally, I also had to modify PHP code to make certain elements appear.",
         

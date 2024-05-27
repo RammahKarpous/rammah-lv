@@ -13,7 +13,7 @@ return [
     [
         "slug" => "kanuka-digital",
         "title" => "Kanuka Digital",
-        "period" => "Nov 2029 - Maa 2020",
+        "period" => "Nov 2019 - Maa 2020",
         "description" => 
             "Tijdens mijn studie werkte ik parttime in een klein team als Junior WordPress Developer bij een bedrijf genaamd Kanuka Digital in Stafford. In die functie was ik voornamelijk bezig met front- endontwikkeling, met HTML, CSS en JavaScript. Af en toe moest ik ook PHP-code aanpassen om bepaalde elementen te laten verschijnen.",
         

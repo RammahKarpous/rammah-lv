@@ -10,7 +10,7 @@ state(["isComingSoon", "project"]);
         <div class="flex flex-wrap items-center justify-between gap-2">
             <h3 class="text-2xl tracking-[0.3em] uppercase font-quicksand">{{ $project['title'] }}</h3>
             @if ($isComingSoon)
-                <livewire:shared.tag technology="Case study coming soon" />
+                <livewire:shared.tag technology="Case study is coming soon" />
             @endif
         </div>
 

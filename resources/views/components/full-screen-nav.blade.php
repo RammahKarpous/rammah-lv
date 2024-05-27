@@ -25,7 +25,7 @@
 @endphp
 
 <div class="fixed top-0 right-0 z-10 flex flex-col items-center w-20 h-screen pt-5 group">
-	<a href="/{{ app()->getLocale() }}" class="fixed z-10 left-10 top-10"><x-application-logo
+	<a href="/{{ app()->getLocale() }}" class="fixed z-10 left-4 top-4"><x-application-logo
 			class="w-20 h-20 text-gray-500 fill-current" /></a>
 
 	<span class="fixed top-0 z-10 w-px h-screen transition-all bg-border right-20 group-hover:bg-gray-800/50"></span>

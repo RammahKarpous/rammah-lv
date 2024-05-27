@@ -28,7 +28,6 @@
 
 		{{-- Articles --}}
 		<section class="max-w-6xl px-4 mx-auto mb-20">
-			<h2 class="mb-5 text-5xl font-bold">{{ __("Latest article") }}</h2>
 			<livewire:article.latest-article margin="mb-0" headingType="h2" />
 		</section>
 	</x-app-layout>

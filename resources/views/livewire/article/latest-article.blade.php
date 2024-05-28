@@ -39,8 +39,8 @@ mount(function () {
 		</div>
 	@else
 		@if (Route::currentRouteName() === "articles")
-			<h2 class="mb-10 text-5xl font-bold text-center">{{ __("Latest article") }}</h2>
-			<p class="text-center">{{ __("No article are yet published") }}</p>
+			<h2 class="mb-10 text-5xl font-bold text-center">{{ __("navigation.links.1.label") }}</h2>
+			<p class="text-center">{{ __("No articles have been published yet.") }}</p>
 		@endif
 	@endif
 </div>

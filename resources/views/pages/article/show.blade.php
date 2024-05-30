@@ -29,9 +29,9 @@ mount(function (Article $article, Request $request) {
 <x-app-layout>
 	@volt("article")
 		<div class="px-5 mt-32">
-			@section("title", $article->title)
+			{{-- @section("title", $article->title)
             @section("description", $article->description)
-            @section("keywords", implode(", ", $article->tag))
+            @section("keywords", $article->tag) --}}
 
 		<div id="header-img"
 			class="container overflow-hidden rounded-lg h-[400px] lg:h-[700px] flex items-center justify-center mt-16 relative">
